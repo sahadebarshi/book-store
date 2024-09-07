@@ -1,0 +1,21 @@
+---
+logging:
+  level: INFO
+  loggers:
+    com.infy.cloud.book: DEBUG
+
+server:
+  applicationContextPath: /
+  rootPath: /api/*
+  adminContextPath: /admin
+  applicationConnectors:
+    - type: http
+      port: 8082
+  adminConnectors:
+    - type: http
+      port: 8081
+
+priceMapping:
+  bookPriceMapping:
+    HarryPotter: "10$"
+    Eclipse: "12$"
