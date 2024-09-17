@@ -11,8 +11,8 @@ public class AwsClientConfig {
 
     public static AmazonSQS getSqsClient() {
         AWSCredentials credentials = new BasicAWSCredentials(
-                "AKIAZQ3DNNWAC4WOEXOE",
-                "47kwILMxZ/dKyzK1xDnmIuCNMc0hT0MEmFbZ0t3W"
+                "",
+                ""
         );
 
          return AmazonSQSClientBuilder
