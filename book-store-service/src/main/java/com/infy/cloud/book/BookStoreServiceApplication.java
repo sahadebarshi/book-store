@@ -5,6 +5,7 @@ import com.infy.cloud.book.guicemodule.ConfigurationModule;
 import com.infy.cloud.book.guicemodule.BookServiceModule;
 import com.infy.cloud.book.guicemodule.ControllerModule;
 import com.infy.cloud.book.guicemodule.ResourceModule;
+import com.infy.cloud.book.servlet.ValidatorServlet;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.core.Application;
 import io.dropwizard.core.setup.Bootstrap;
@@ -43,6 +44,10 @@ public class BookStoreServiceApplication extends Application<BookStoreServiceCon
     public void run(final BookStoreServiceConfiguration configuration,
                     final Environment env) {
       env.getObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+
+      env.servlets().addServlet("Validator", ValidatorServlet.class)
+              .addMapping("/test");
+
       // prevent caching index.html, so that the documentation is always upto date
         env.servlets().addFilter("index-cache-busting-filter", new CacheBustingFilter())
                 .addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST),

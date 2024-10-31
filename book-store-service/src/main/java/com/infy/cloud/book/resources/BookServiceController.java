@@ -55,6 +55,7 @@ public class BookServiceController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response retreiveAllBookDetails()
     {
+        log.info("FETCHING ALL BOOKS....");
         return bookService.getAllBookDetails();
     }
 
